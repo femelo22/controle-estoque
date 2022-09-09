@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Compra } from "./Compra"
 import { Venda } from "./Venda"
 
 @Entity()
@@ -60,4 +61,7 @@ export class Usuario {
 
     @OneToMany(() => Venda, venda => venda.usuario)
     vendas: Venda[]
+
+    @OneToMany(() => Compra, compra => compra.usuario)
+    compras: Compra[]
 }
