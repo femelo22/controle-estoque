@@ -44,7 +44,21 @@ export class UsuarioController {
     }
 
 
-    async delete(request: Request, response: Response) {
-        
+    async update(request: Request, response: Response) {
+        const usuario = request.body;
+        const { id }  = request.params
+
+        const service = new UsuarioService();
+
+        const result = await service.update(usuario, id);
+
+        if(result instanceof Error) {
+            return response.status(400).json({
+                message: result.message
+            })
+        }
+
+        return response.status(201).json(result)
     }
+
 }
