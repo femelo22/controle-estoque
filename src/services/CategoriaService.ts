@@ -8,6 +8,10 @@ type CategoriaRequest = {
 
 export class CategoriaService {
 
+    async list(): Promise<Categoria[]> {
+        return await categoriaRepository.find();
+    }
+
     async create({ nome } : CategoriaRequest): Promise<Categoria | Error> {
 
         if(await categoriaRepository.findOneBy({ nome })) {
@@ -19,5 +23,15 @@ export class CategoriaService {
         await categoriaRepository.save(categoria);
 
         return categoria;
+    }
+
+    async delete(id: number): Promise<void | Error> {
+        const categoria = await categoriaRepository.findOneBy({ id });
+
+        if(!categoria) {
+            return new Error("Categoria not found")
+        }
+
+        await categoriaRepository.delete(categoria);
     }
 }

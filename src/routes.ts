@@ -11,5 +11,8 @@ routes.post('/users', new UsuarioController().save);
 routes.put('/users/:id', new UsuarioController().update);
 
 routes.post('/categories', new CategoriaController().save);
+routes.get('/categories', new CategoriaController().list)
+routes.delete('/categories/:id', new CategoriaController().delete);
+
 
 export default routes;
