@@ -16,13 +16,15 @@ export class Usuario {
 
     @Column({
         type: "text",
-        nullable: false
+        nullable: false,
+        unique: true
     })
     cpf: string
 
     @Column({
         type: "text",
-        nullable: false
+        nullable: false,
+        unique: true
     })
     email: number
 

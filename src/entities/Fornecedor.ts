@@ -16,6 +16,7 @@ export class Fornecedor {
     @Column({
         type: "text",
         nullable: false,
+        unique: true
     })
     cnpj: string
 

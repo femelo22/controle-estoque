@@ -1,23 +1,10 @@
-// import { UserController } from "./controller/UserController"
+import { Router } from 'express'
+import { UsuarioController } from './controller/UsuarioController';
 
-// export const Routes = [{
-//     method: "get",
-//     route: "/users",
-//     controller: UserController,
-//     action: "all"
-// }, {
-//     method: "get",
-//     route: "/users/:id",
-//     controller: UserController,
-//     action: "one"
-// }, {
-//     method: "post",
-//     route: "/users",
-//     controller: UserController,
-//     action: "save"
-// }, {
-//     method: "delete",
-//     route: "/users/:id",
-//     controller: UserController,
-//     action: "remove"
-// }]
+const routes = Router();
+
+routes.get('/users', new UsuarioController().findAll);
+routes.get('/users/:id', new UsuarioController().findById)
+routes.post('/users', new UsuarioController().save);
+
+export default routes;

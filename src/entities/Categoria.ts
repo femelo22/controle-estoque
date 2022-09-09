@@ -9,7 +9,8 @@ export class Categoria {
 
     @Column({
         type: "text",
-        nullable: false
+        nullable: false,
+        unique: true
     })
     nome: string
 
