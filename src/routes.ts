@@ -3,7 +3,6 @@ import { CategoriaController } from './controller/CategoriaController';
 import { FornecedorController } from './controller/FornecedorController';
 import { ProdutoController } from './controller/ProdutoController';
 import { UsuarioController } from './controller/UsuarioController';
-import { CategoriaService } from './services/CategoriaService';
 
 const routes = Router();
 
@@ -22,6 +21,9 @@ routes.get('/categories', new CategoriaController().list)
 routes.delete('/categories/:id', new CategoriaController().delete);
 
 routes.post('/products', new ProdutoController().create);
+routes.get('/products', new ProdutoController().findAll);
+routes.get('/products/:id', new ProdutoController().findById);
+routes.delete('/products/:id', new ProdutoController().delete);
 
 
 export default routes;
