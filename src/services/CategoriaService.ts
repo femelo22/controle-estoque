@@ -12,6 +12,16 @@ export class CategoriaService {
         return await categoriaRepository.find();
     }
 
+    async findById(id: number): Promise<Categoria | Error> {
+        const categoria = await categoriaRepository.findOneBy({ id });
+
+        if(!categoria) {
+            return new Error("Categoria not found")
+        }
+
+        return categoria;
+    }
+
     async create({ nome } : CategoriaRequest): Promise<Categoria | Error> {
 
         if(await categoriaRepository.findOneBy({ nome })) {

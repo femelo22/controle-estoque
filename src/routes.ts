@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { CategoriaController } from './controller/CategoriaController';
 import { FornecedorController } from './controller/FornecedorController';
+import { ProdutoController } from './controller/ProdutoController';
 import { UsuarioController } from './controller/UsuarioController';
 import { CategoriaService } from './services/CategoriaService';
 
@@ -19,6 +20,8 @@ routes.put('/suppliers/:id', new FornecedorController().update);
 routes.post('/categories', new CategoriaController().save);
 routes.get('/categories', new CategoriaController().list)
 routes.delete('/categories/:id', new CategoriaController().delete);
+
+routes.post('/products', new ProdutoController().create);
 
 
 export default routes;
