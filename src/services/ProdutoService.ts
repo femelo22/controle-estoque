@@ -1,7 +1,6 @@
 import { Categoria } from "../entities/Categoria";
 import { Fornecedor } from "../entities/Fornecedor";
 import { Produto } from "../entities/Produto"
-import { fornecedorRepository } from "../repositories/FornecedorRepository";
 import { produtoRepository } from "../repositories/ProdutoRepository";
 import { CategoriaService } from "./CategoriaService";
 import { FornecedorService } from "./FornecedorService";
@@ -49,6 +48,35 @@ export class ProdutoService {
         await produtoRepository.save(newProduto);
 
         return newProduto;
+    }
+
+    async findAll(): Promise<Produto[]> {
+
+        const produtos = await produtoRepository.find();
+
+        return produtos;
+    }
+
+    async findById(id: number): Promise<Produto | Error> {
+
+        const produto = await produtoRepository.findOneBy({ id });
+
+        if(!produto) {
+            return new Error(`Product not found`)
+        }
+
+        return produto;
+    }
+
+    async delete(id: number): Promise<void | Error> {
+
+        const produto = await produtoRepository.findOneBy({ id });
+
+        if(!produto) {
+            return new Error(`Product not found`)
+        }
+
+        await produtoRepository.delete(produto);
     }
 
 }
