@@ -19,6 +19,13 @@ type ProdutoRequest = {
 export class ProdutoService {
 
     async save(produto: ProdutoRequest): Promise<Produto | Error> {
+
+        const nome = produto.nome
+
+        if(await produtoRepository.findOneBy({ nome })) {
+            return new Error(`${nome} already exists`);
+        }
+
         const categoriaService = new CategoriaService();
         const categoria = await categoriaService.findById(produto.idCategoria);
 

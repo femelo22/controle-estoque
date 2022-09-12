@@ -3,6 +3,7 @@ import { ProdutoService } from '../services/ProdutoService';
 
 
 export class ProdutoController {
+
     async create (req: Request, res: Response) {
         const produto = req.body;
 
@@ -18,4 +19,7 @@ export class ProdutoController {
 
         return res.json(result);
     }
+
+    
+
 }
