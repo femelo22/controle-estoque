@@ -3,11 +3,11 @@
 
 <h2>Passos para rodar o projeto 🚀</h2>
 
-1 - Clonar o projeto para sua máquina.
+1 - Clonar o projeto para sua máquina `git clone https://github.com/femelo22/controle-estoque.git`
 
-2 - Abra o terminal no diretório do projeto e digite: npm install.
+2 - Abra o terminal no diretório do projeto e digite: `npm install`
 
-3 - npm start.
+3 - `npm start`
 
 <br/> <br/> 
 
@@ -23,3 +23,6 @@
  - Postgres
  
  - Docker
+
+<br/> <br/> 
+
